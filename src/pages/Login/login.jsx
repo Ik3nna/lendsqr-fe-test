@@ -22,11 +22,11 @@ function Login () {
     };
 
     return(
-        <main>
-            <section>
+        <main className={styles.container}>
+            <section className={styles.imgContainer}>
                 <img src="/assets/Group.svg" alt="logo" />
 
-                <img src="/pablo-sign-in 1.svg" alt="pablo" />
+                <img src="/assets/pablo-sign-in 1.svg" alt="pablo" />
             </section>
 
             <section>
@@ -53,7 +53,7 @@ function Login () {
                         />
                     </Form.Group>
 
-                    <div>forgot password</div>
+                    <div className={styles.password}>forgot password?</div>
 
                     <Button type="submit">log in</Button>
                 </Form>
