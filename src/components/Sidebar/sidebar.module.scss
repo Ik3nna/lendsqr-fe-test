@@ -1,0 +1,166 @@
+@import "../../styles/globals";
+
+$navColor: #213f7d;
+
+::-webkit-scrollbar {
+    width: 6px;
+    background-color: #F5F5F5;
+}
+::-webkit-scrollbar-thumb {
+    border-radius: 6px;
+    background-color: #e5e5e5;
+}
+.sidebar {
+    height: 100%;
+    width: 283px;
+    position: fixed;
+    left: 0;
+    top: 90px;
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.04);
+    z-index: 5;
+    font-family: $alternativeFont;
+    @include font(400, 16px, 19px);
+    color: $navColor;
+    overflow-y: scroll;
+
+    img {
+        cursor: pointer;
+    }
+
+    a {
+        text-decoration: none;
+        color: $navColor;
+        opacity: 0.3;
+    }
+
+    ul {
+        list-style: none;
+        margin-left: 0;
+        padding-left: 0;
+    }
+
+    .container {
+        max-width: 100%;
+        width: 75%;
+        margin: 30px auto;
+
+        .dashboard {
+            margin: 40px auto;
+
+            div:nth-of-type(1) {
+                margin-right: 5px;
+            }
+        }
+
+        img {
+            margin-right: 10px;
+            width: 16px;
+        }
+
+        article, a {
+            display: flex;
+            cursor: pointer;
+        }
+
+        a {
+            margin-bottom: 40px
+        }
+
+        .customers, .business, .settings {
+            @include displays(flex, none, flex-start);
+            flex-direction: column;
+
+            > div {
+                text-transform: uppercase;
+                @include font(500, 12px, 14px);
+            }
+
+            ul {
+                margin-top: 10px;
+
+                .users {
+                    padding: 10px 0px;
+                    opacity: 0.8;
+                    position: relative;
+                    border-left: 6px solid $btnBackground;
+                    padding-left: 33px;
+                    left: -23%;
+
+                    .active {
+                        width: 280px;
+                        height: 40px;
+                        background-color: $btnBackground;
+                        opacity: 0.06;
+                        position: absolute;
+                        left: 0
+                    }
+                }
+
+                li {
+                    @include displays(flex, none, center);
+                    margin-bottom: 20px;
+                    opacity: 0.3;
+                    text-transform: capitalize;
+                }
+            }
+        }
+
+        .settings {
+            margin-bottom: 50px;
+        }
+    }
+}
+
+
+@media (max-width: 1200px) {
+    .sidebar {
+        .container {
+            width: 80%;
+
+            .customers {
+                ul {
+                    .users {
+                        left: -19%;
+                        padding-left: 25px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .sidebar {
+        .container {
+            width: 83%;
+
+            .customers {
+                ul {
+                    .users {
+                        left: -16%;
+                        padding-left: 22px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 767px) {
+    .sidebar {
+        top: 80px;
+
+        .container {
+            width: 85%;
+
+            .customers {
+                ul {
+                    .users {
+                        left: -14%;
+                        padding-left: 19px;
+                    }
+                }
+            }
+        }
+    }
+}

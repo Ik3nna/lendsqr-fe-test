@@ -3,6 +3,7 @@ import styles from "./navbar.module.scss";
 import { BiSearch } from "react-icons/bi";
 import { IoMdNotificationsOutline } from "react-icons/io";
 import { MdArrowDropDown } from "react-icons/md";
+import Sidebar from "../Sidebar/sidebar";
 
 function Navbar () {
     const [searchText, setSearchText] = useState("");
@@ -13,8 +14,8 @@ function Navbar () {
     }
 
     return(
-        <header className={`${styles.content} ${active && styles.active}`}>
-            <section>
+        <header className={`${styles.content} ${active && styles.activeNav}`}>
+            <section className={styles.sect}>
                 <img src="/assets/Group.svg" alt="logo" />
 
                 <form onSubmit={handleSubmit}>
@@ -41,6 +42,8 @@ function Navbar () {
                     <div className={styles.bar}></div>
                 </div>
             </section>
+
+            <Sidebar />
         </header>
     );
 }

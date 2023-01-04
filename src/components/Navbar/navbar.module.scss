@@ -11,7 +11,7 @@ $placeholderColor: #545f7d;
     width: 100%;
     z-index: 10;
 
-    section {
+    .sect {
         @include displays(flex, none, center);
         max-width: 100%;
         width: 95%;
@@ -76,7 +76,7 @@ $placeholderColor: #545f7d;
 
 @media (min-width: 768px) and (max-width: 991px) {
     .content {
-        section {
+        .sect {
             form {
                 input {
                     width: 240px;
@@ -94,7 +94,7 @@ $placeholderColor: #545f7d;
 
 @media (max-width: 767px) {
     .content {
-        section {
+        .sect {
             @include displays(flex, flex-end, center);
 
             form, .docs,.ade {
@@ -120,7 +120,7 @@ $placeholderColor: #545f7d;
                 align-items: center;
                 justify-content: center;
                 cursor: pointer;
-                z-index: 12;
+                z-index: 10;
                 position: absolute;
                 left: 20px;
 
@@ -159,25 +159,31 @@ $placeholderColor: #545f7d;
                 background-color: $headerColor;
                 z-index: 5;
             }
+        }
 
-            .active {
-                .hamburgerMenu {
-                    position: fixed;
-                    top: 17px;
-                    left: 300px;
-                } 
-                .overlay {
-                    pointer-events: all;
-                    opacity: 0.3;
-                }
-            }
+        aside {
+            transform: translateX(-100%);
+            transition: 300ms;
         }
     }
+
+    .activeNav {
+        .overlay {
+            pointer-events: all;
+            opacity: 0.3;
+        }
+    }
+
+    .activeNav aside {
+        transform: translateX(0);
+        transition: 300ms;
+    }
+
 }
 
 @media (max-width: 400px) {
     .content {
-        section {
+        .sect {
             img:nth-of-type(1) {
                 left: 20%;
             }
