@@ -1,6 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;600;700&family=Roboto&family=Work+Sans:wght@200;400;600;700&display=swap');
+
 $mainBackground: #ffffff;
 $loginFont: 'Montserrat', sans-serif; 
 $alternativeFont: 'Work Sans', sans-serif;
+$roboto: 'Roboto', sans-serif;
+$btnBackground: #39CDCC;
+
+@mixin displays($display, $justify-content, $align-items) {
+    display: $display;
+    justify-content: $justify-content;
+    align-items: $align-items;
+}
+
+@mixin font($font-weight, $font-size, $line-height) {
+    font-weight: $font-weight;
+    font-size: $font-size;
+    line-height: $line-height
+}
+
 
 body {
     margin: 0;

@@ -2,19 +2,6 @@
 
 $welcome: #213F7D;
 $fontColor: #545F7D;
-$btnBackground: #39CDCC;
-
-@mixin displays($display, $justify-content, $align-items) {
-    display: $display;
-    justify-content: $justify-content;
-    align-items: $align-items;
-}
-
-@mixin font($font-weight, $font-size, $line-height) {
-    font-weight: $font-weight;
-    font-size: $font-size;
-    line-height: $line-height
-}
 
 .container {
     @include displays(flex, space-between, center);
@@ -87,6 +74,9 @@ $btnBackground: #39CDCC;
                 border: none !important;
                 border-radius: 8px;
             }
+            button:hover {
+                background-color: $btnBackground;
+            }
         }
     }
 }
@@ -122,9 +112,8 @@ $btnBackground: #39CDCC;
             }
         }
         section:nth-of-type(2) {
-            padding: 100px 20px 150px 20px;
+            padding: 100px 20px 100px 20px;
             width: 100%;
-            height: 100%;
             text-align: center;
             
             form {
