@@ -3,6 +3,7 @@
 $mainColor: #213f7d;
 $subColor: #545f7d;
 
+
 .content::-webkit-scrollbar {
     width: 6px;
     background-color: #F5F5F5;
@@ -11,6 +12,21 @@ $subColor: #545f7d;
     border-radius: 6px;
     background-color: #e5e5e5;
 }
+.loading {
+    h3 {
+        color: $mainColor;
+        @include font(700, 24px, 28px);
+        font-family: $alternativeFont;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        animation: bounce 3s infinite;
+    }
+}
+
 
 .content {
     background-color: #e5e5e5;
@@ -65,6 +81,19 @@ $subColor: #545f7d;
                 }
             }
         }
+    }
+}
+
+
+@keyframes bounce {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(2);
+    }
+    100% {
+        transform: scale(1);
     }
 }
 
