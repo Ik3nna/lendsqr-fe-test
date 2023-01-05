@@ -1,0 +1,135 @@
+@import "../../styles/_globals.scss";
+
+$mainColor: #213f7d;
+$subColor: #545f7d;
+
+.content::-webkit-scrollbar {
+    width: 6px;
+    background-color: #F5F5F5;
+}
+.content::-webkit-scrollbar-thumb {
+    border-radius: 6px;
+    background-color: #e5e5e5;
+}
+
+.content {
+    background-color: #e5e5e5;
+    position: fixed;
+    top: 90px;
+    width: 100%;
+    height: 100%;
+    left: 283px;
+    font-family: $alternativeFont;
+    overflow-y: scroll;
+    
+    .container {
+        padding: 40px;
+
+        > div {
+            @include font(500, 24px, 28px);
+            text-transform: capitalize;
+            color: $mainColor;
+            margin-bottom: 25px;
+        }
+
+        article:nth-of-type(1) {
+            @include displays(flex, none, center);
+            gap: 30px;
+
+            .card {
+                width: 240px;
+                height: 160px;
+                border: 1px solid rgba(33, 63, 125, 0.06);
+                box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04);
+                border-radius: 4px;
+                @include displays(flex, none, none);
+                padding: 20px;
+                flex-direction: column;
+                gap: 15px;
+                background: $mainBackground;
+
+                div:nth-of-type(1) {
+                    @include font(500, 14px, 16px);
+                    color: $subColor;
+                    text-transform: uppercase;
+                }
+
+                div:nth-of-type(2) {
+                    @include font(600, 24px, 28px);
+                }
+
+                img {
+                    width: 40px;
+                    height: 40px;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}
+
+
+@media (max-width: 1400px) {
+    .content {
+        .container {
+            article:nth-of-type(1) {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                width: 50%;
+                
+
+                .card {
+                    width: 400px;
+                }
+            }
+        }
+    }
+}
+@media (max-width: 1200px) {
+    .content {
+        .container {
+            article:nth-of-type(1) {
+                .card {
+                    width: 300px;
+                }
+            }
+        }
+    }
+}
+@media (max-width: 991px) {
+    .content {
+        .container {
+            article:nth-of-type(1) {
+                .card {
+                    width: 100%;
+                    height: 170px;
+                }
+            }
+        }
+    }
+}
+@media (max-width: 767px) {
+    .content {
+        top: 80px;
+        left: 0;
+
+        .container {
+            article:nth-of-type(1) {
+                .card {
+                    width: 240px;
+                    height: 160px;
+                }
+            }
+        }
+    }
+}
+@media (max-width: 576px) {
+    .content {
+        .container {
+            article:nth-of-type(1) {
+                grid-template-columns: repeat(1, 1fr);
+
+            }
+        }
+    }
+}

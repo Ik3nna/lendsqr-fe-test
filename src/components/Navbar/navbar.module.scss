@@ -147,30 +147,11 @@ $placeholderColor: #545f7d;
                     transform: translateY(8px);
                 }
             }
-
-            .overlay {
-                position: fixed;
-                top: 0;
-                left: 0;
-                bottom: 0;
-                right: 0;
-                opacity: 0;
-                pointer-events: none;
-                background-color: $headerColor;
-                z-index: 5;
-            }
         }
 
         aside {
             transform: translateX(-100%);
             transition: 300ms;
-        }
-    }
-
-    .activeNav {
-        .overlay {
-            pointer-events: all;
-            opacity: 0.3;
         }
     }
 

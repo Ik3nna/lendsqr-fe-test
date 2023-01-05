@@ -35,8 +35,6 @@ function Navbar () {
                 <div className={styles.ade}>Adedeji</div>
 
                 <MdArrowDropDown style={{ fontSize: "20px", cursor: "pointer" }} />
-
-                <div className={styles.overlay}></div>
                     
                 <div className={styles.hamburgerMenu} onClick={()=>setActive(!active)}>
                     <div className={styles.bar}></div>
