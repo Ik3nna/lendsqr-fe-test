@@ -95,6 +95,15 @@ $subColor: #545f7d;
         thead {
             @include font(600, 12px, 14px);
             text-transform: uppercase;
+
+            tr {
+                th {
+                    span {
+                        margin-left: 10px;
+                        cursor: pointer
+                    }
+                }
+            }
         }
 
         tbody {

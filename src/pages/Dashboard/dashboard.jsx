@@ -3,6 +3,7 @@ import styles from "./dashboard.module.scss";
 import Navbar from "../../components/Navbar/navbar";
 import Pagination from "../../components/Pagination/pagination";
 import Table from 'react-bootstrap/Table';
+import Dropdown from 'react-bootstrap/Dropdown';
 
 const url = "https://6270020422c706a0ae70b72c.mockapi.io/lendsqr/api/v1/users";
 
@@ -108,12 +109,31 @@ function Dashboard () {
                 <Table size="md" responsive="xl">
                     <thead>
                         <tr>
-                            <th>organization</th>
-                            <th>username</th>
-                            <th>email</th>
-                            <th>phone number</th>
-                            <th>date joined</th>
-                            <th>status</th>
+                            <th>
+                                organization 
+                                <span><img src="/assets/dropdown.svg" alt="dropdown" /></span>
+                            </th>
+                            <th>
+                                username
+                                <span><img src="/assets/dropdown.svg" alt="dropdown" /></span>
+                            </th>
+                            <th>
+                                email
+                                <span><img src="/assets/dropdown.svg" alt="dropdown" /></span>
+                            </th>
+                            <th>
+                                phone number
+                                <span><img src="/assets/dropdown.svg" alt="dropdown" /></span>
+                            </th>
+                            <th>
+                                date joined
+                                <span><img src="/assets/dropdown.svg" alt="dropdown" /></span>
+                            </th>
+                            <th>
+                                status
+                                <span><img src="/assets/dropdown.svg" alt="dropdown" /></span>
+                            </th>
+                            <th></th>
                         </tr>
                     </thead>
 
@@ -189,6 +209,9 @@ function Dashboard () {
                                     <td>{item.phoneNumber}</td>
                                     <td>{dateJoined}</td>
                                     <td>{realStat()}</td>
+                                    <td style={{ cursor: "pointer" }}>
+                                        <img src="/assets/ic-more-vert-18px.svg" alt="more" />
+                                    </td>
                                 </tr>
                             )
                         })}
