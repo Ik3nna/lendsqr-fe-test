@@ -120,7 +120,66 @@ function Dashboard () {
                     <tbody>
                         {currentTableData.map((item, index)=>{
                             const dateJoined = (new Date(item.createdAt.substring(0, 10).split("-")).toDateString());
-                            const status = (new Date(item.lastActiveDate.substring(0, 10).split("-")).toDateString())
+                            const status = (new Date(item.lastActiveDate.substring(0, 10).split("-")).toDateString());
+                            
+                            const xStat = status.substring(11, 15);
+                            const xDateJoined = dateJoined.substring(11, 15);
+                            const diff = xStat - xDateJoined;
+
+                            const realStat = ()=> {
+                                if (diff < 0) {
+                                    return(
+                                        <div style={{
+                                            backgroundColor: "rgba(228, 3, 59, 0.1)",
+                                            padding: "3px 5px",
+                                            textAlign: "center",
+                                            borderRadius: "100px",
+                                            color: "#e4033b"
+                                        }}>
+                                            Blacklisted
+                                        </div>
+                                    );
+                                } 
+                                else if (diff > 0 && diff < 5) {
+                                    return(
+                                        <div style={{
+                                            backgroundColor: "rgba(57, 205, 98, 0.06)",
+                                            padding: "3px 5px",
+                                            textAlign: "center",
+                                            borderRadius: "100px",
+                                            color: "#39cd62"
+                                        }}>
+                                            Active
+                                        </div>
+                                    );
+                                }
+                                else if (diff > 5 && diff < 15) {
+                                    return(
+                                        <div style={{
+                                            backgroundColor: "rgba(233, 178, 0, 0.1)",
+                                            padding: "3px 5px",
+                                            textAlign: "center",
+                                            borderRadius: "100px",
+                                            color: "#e9b200"
+                                        }}>
+                                            Pending
+                                        </div>
+                                    );
+                                } 
+                                else {
+                                    return(
+                                        <div style={{
+                                            backgroundColor: "rgba(84, 95, 125, 0.06)",
+                                            padding: "3px 5px",
+                                            textAlign: "center",
+                                            borderRadius: "100px",
+                                            color: "#545f7d"
+                                        }}>
+                                            Inactive
+                                        </div>
+                                    );
+                                }
+                            }
 
                             return(
                                 <tr key={index}>
@@ -129,7 +188,7 @@ function Dashboard () {
                                     <td>{item.email}</td>
                                     <td>{item.phoneNumber}</td>
                                     <td>{dateJoined}</td>
-                                    <td>{status}</td>
+                                    <td>{realStat()}</td>
                                 </tr>
                             )
                         })}
