@@ -131,24 +131,8 @@ $navColor: #213f7d;
     }
 }
 
-@media (min-width: 768px) and (max-width: 991px) {
-    .sidebar {
-        .container {
-            width: 83%;
 
-            .customers {
-                ul {
-                    .users {
-                        left: -16%;
-                        padding-left: 22px;
-                    }
-                }
-            }
-        }
-    }
-}
-
-@media (max-width: 767px) {
+@media (max-width: 991px) {
     .sidebar {
         top: 80px;
 

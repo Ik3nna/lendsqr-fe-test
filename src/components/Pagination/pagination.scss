@@ -1,3 +1,5 @@
+@import "../../styles/globals";
+
 .pagination-container {
     display: flex;
     list-style-type: none;
@@ -11,10 +13,9 @@
       display: flex;
       box-sizing: border-box;
       align-items: center;
-      letter-spacing: 0.01071em;
       border-radius: 16px;
-      line-height: 1.43;
-      font-size: 13px;
+      @include font(400, 14px, 16px);
+      color: #213f7d;
       min-width: 32px;
   
       &.dots:hover {

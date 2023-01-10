@@ -13,33 +13,36 @@ $subColor: #545f7d;
     background-color: #e5e5e5;
 }
 .loading {
-    h3 {
+    height: 100vh;
+    overflow: hidden;
+
+    div {
         color: $mainColor;
         @include font(700, 24px, 28px);
         font-family: $alternativeFont;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        -webkit-transform: translate(-50%, -50%);
-        -ms-transform: translate(-50%, -50%);
+        text-align: center;
+        margin-top: 40vh;
         animation: bounce 3s infinite;
     }
 }
 
-
+.sf {
+    height: 130vh;
+    background-color: #e5e5e5 !important;
+}
 .content {
     background-color: #e5e5e5;
-    position: fixed;
+    position: relative;
     top: 90px;
     width: 100%;
-    height: 100%;
     left: 283px;
     font-family: $alternativeFont;
-    overflow-y: scroll;
+    padding-bottom: 50px;
     
     .container {
-        padding: 40px;
+        padding-top: 40px;
+        width: 1037px;
+        margin-left: 40px;
 
         > div {
             @include font(500, 24px, 28px);
@@ -82,6 +85,49 @@ $subColor: #545f7d;
             }
         }
     }
+
+    table {
+        background: $mainBackground;
+        width: 1037px;
+        margin: 40px;
+        color: $subColor;
+
+
+        thead {
+            @include font(600, 12px, 14px);
+            text-transform: uppercase;
+        }
+
+        tbody {
+            @include font(400, 12px, 14px);
+        }
+    }
+
+    .pageContainer {
+        max-width: 100%;
+        width: 95%;
+        margin: auto;
+        @include displays(flex, center, center);
+        @include font(400, 14px, 16px);
+        color: $mainColor;
+
+        .show {
+            width: 20%;
+            margin-top: -15px;
+
+            span {
+                background: rgba(33, 63, 125, 0.1);
+                border-radius: 4px;
+                padding: 5px 10px;
+                cursor: pointer;
+            }
+        }
+
+        .page {
+            width: 100%;
+            @include displays(flex, center, none);
+        }
+    }
 }
 
 
@@ -101,6 +147,8 @@ $subColor: #545f7d;
 @media (max-width: 1400px) {
     .content {
         .container {
+            width: 900px;
+
             article:nth-of-type(1) {
                 display: grid;
                 grid-template-columns: repeat(2, 1fr);
@@ -112,37 +160,55 @@ $subColor: #545f7d;
                 }
             }
         }
+
+        table {
+            width: 900px;
+        }
     }
 }
 @media (max-width: 1200px) {
+    .sf {
+        height: 150vh;
+    }
+
     .content {
         .container {
+
             article:nth-of-type(1) {
                 .card {
                     width: 300px;
                 }
             }
         }
-    }
-}
-@media (max-width: 991px) {
-    .content {
-        .container {
-            article:nth-of-type(1) {
-                .card {
-                    width: 100%;
-                    height: 170px;
-                }
+
+        table {
+            width: 650px;
+        }
+
+        .pageContainer {
+            margin-left: 40px;
+            margin-top: 20px;
+            @include displays(flex, none, flex-start);
+            flex-direction: column;
+
+            .page {
+                @include displays(flex, none, flex-start);
+                margin-top: 20px;
+                width: 300px;
             }
         }
     }
 }
-@media (max-width: 767px) {
+
+@media (max-width: 991px) {
     .content {
         top: 80px;
         left: 0;
+        padding-bottom: 80px;
 
         .container {
+            width: 80%;
+
             article:nth-of-type(1) {
                 .card {
                     width: 240px;
@@ -150,14 +216,29 @@ $subColor: #545f7d;
                 }
             }
         }
+
+        table {
+            width: 1037px;
+        }
     }
 }
 @media (max-width: 576px) {
+    .sf {
+        height: 200vh;
+    }
+
     .content {
         .container {
             article:nth-of-type(1) {
                 grid-template-columns: repeat(1, 1fr);
 
+            }
+        }
+
+        .pageContainer {
+            .page {
+                width: 290px;
+                overflow-x: scroll;
             }
         }
     }

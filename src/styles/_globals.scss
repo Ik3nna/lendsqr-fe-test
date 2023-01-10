@@ -24,4 +24,8 @@ body {
     padding: 0;
     box-sizing: border-box;
 }
+body, html {
+    position: relative;
+    overflow-x: hidden;
+}
 
