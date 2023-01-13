@@ -7,105 +7,86 @@ import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import Popover from 'react-bootstrap/Popover';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
+import Tableterm from "../../components/tableterm";
 
 const url = "https://6270020422c706a0ae70b72c.mockapi.io/lendsqr/api/v1/users";
 
 let PageSize = 10;
 
-const popover = (
-    <Popover id="popover-basic" className={styles.pops}>
-      <Popover.Body>
-            <article>
-                <span>
-                    <img src="/assets/np_view.svg" />
-                </span>
-                View Details
-            </article>
-
-            <article>
-                <span>
-                    <img src="/assets/np_delete-friend.svg" />
-                </span>
-                Blacklist User
-            </article>
-
-            <article>
-                <span>
-                    <img src="/assets/np_user.svg" />
-                </span>
-                Activate User
-            </article>
-      </Popover.Body>
-    </Popover>
-);
-
-const dropdown = (
-    <Popover id="popover-basic" className={styles.dropdown}>
-      <Popover.Body>
-            <Form>
-                <Form.Group className="mb-3" controlId="organization">
-                    <Form.Label>Organization</Form.Label>
-                    
-                    <Form.Select aria-label="Default select example" className={styles.sel}>
-                        <option>Select</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
-                    </Form.Select>
-                </Form.Group>
-
-                <Form.Group className="mb-3" controlId="username">
-                    <Form.Label>Username</Form.Label>
-
-                    <Form.Control type="text" placeholder="User" />
-                </Form.Group>
-
-                <Form.Group className="mb-3" controlId="email">
-                    <Form.Label>Email</Form.Label>
-
-                    <Form.Control type="email" placeholder="Email" />
-                </Form.Group>
-
-                <Form.Group className="mb-3" controlId="date">
-                    <Form.Label>Date</Form.Label>
-
-                    <Form.Control type="date" placeholder="Date" />
-                </Form.Group>
-
-                <Form.Group className="mb-3" controlId="number">
-                    <Form.Label>Phone Number</Form.Label>
-
-                    <Form.Control type="number" placeholder="Phone Number" />
-                </Form.Group>
-
-                <Form.Group className="mb-3" controlId="status">
-                    <Form.Label>Status</Form.Label>
-                    
-                    <Form.Select aria-label="Default select example" className={styles.sel}>
-                        <option>Select</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
-                    </Form.Select>
-                </Form.Group>
-
-                <section>
-                    <Button>
-                        Reset
-                    </Button>
-
-                    <Button>
-                        Filter
-                    </Button>
-                </section>
-            </Form>
-      </Popover.Body>
-    </Popover>
-);
-
 function Dashboard () {
     const [loading, setLoading] = useState(false);
     const [dashboardData, setDashboardData] = useState([]);
+    // const [blacklist, setBlacklist] = useState(false);
+    // const [activate, setActivate] = useState(false);
+
+    const dropdown = (
+        <Popover id="popover-basic" className={styles.dropdown}>
+          <Popover.Body>
+                <Form>
+                    <Form.Group className="mb-3" controlId="organization">
+                        <Form.Label>Organization</Form.Label>
+                        
+                        <Form.Select aria-label="Default select example" className={styles.sel}>
+                            <option>Select</option>
+                            {dashboardData.map((item, index)=>{
+                                return(
+                                    <option key={index}>
+                                        {item.orgName}
+                                    </option>
+                                )
+                            })}
+                        </Form.Select>
+                    </Form.Group>
+    
+                    <Form.Group className="mb-3" controlId="username">
+                        <Form.Label>Username</Form.Label>
+    
+                        <Form.Control type="text" placeholder="User" />
+                    </Form.Group>
+    
+                    <Form.Group className="mb-3" controlId="email">
+                        <Form.Label>Email</Form.Label>
+    
+                        <Form.Control type="email" placeholder="Email" />
+                    </Form.Group>
+    
+                    <Form.Group className="mb-3" controlId="date">
+                        <Form.Label>Date</Form.Label>
+    
+                        <Form.Control type="date" placeholder="Date" />
+                    </Form.Group>
+    
+                    <Form.Group className="mb-3" controlId="number">
+                        <Form.Label>Phone Number</Form.Label>
+    
+                        <Form.Control type="number" placeholder="Phone Number" />
+                    </Form.Group>
+    
+                    <Form.Group className="mb-3" controlId="status">
+                        <Form.Label>Status</Form.Label>
+                        
+                        <Form.Select aria-label="Default select example" className={styles.sel}>
+                            <option>Select</option>
+                            <option value="1">Inactive</option>
+                            <option value="2">Active</option>
+                            <option value="3">Blacklisted</option>
+                            <option value="4">Pending</option>
+                        </Form.Select>
+                    </Form.Group>
+    
+                    <section>
+                        <Button>
+                            Reset
+                        </Button>
+    
+                        <Button>
+                            Filter
+                        </Button>
+                    </section>
+                </Form>
+          </Popover.Body>
+        </Popover>
+    );
 
     const fetchData = ()=> {
         setLoading(true);
@@ -264,75 +245,8 @@ function Dashboard () {
                             const xDateJoined = dateJoined.substring(11, 15);
                             const diff = xStat - xDateJoined;
 
-                            const realStat = ()=> {
-                                if (diff < 0) {
-                                    return(
-                                        <div style={{
-                                            backgroundColor: "rgba(228, 3, 59, 0.1)",
-                                            padding: "3px 5px",
-                                            textAlign: "center",
-                                            borderRadius: "100px",
-                                            color: "#e4033b"
-                                        }}>
-                                            Blacklisted
-                                        </div>
-                                    );
-                                } 
-                                else if (diff > 0 && diff < 5) {
-                                    return(
-                                        <div style={{
-                                            backgroundColor: "rgba(57, 205, 98, 0.06)",
-                                            padding: "3px 5px",
-                                            textAlign: "center",
-                                            borderRadius: "100px",
-                                            color: "#39cd62"
-                                        }}>
-                                            Active
-                                        </div>
-                                    );
-                                }
-                                else if (diff > 5 && diff < 15) {
-                                    return(
-                                        <div style={{
-                                            backgroundColor: "rgba(233, 178, 0, 0.1)",
-                                            padding: "3px 5px",
-                                            textAlign: "center",
-                                            borderRadius: "100px",
-                                            color: "#e9b200"
-                                        }}>
-                                            Pending
-                                        </div>
-                                    );
-                                } 
-                                else {
-                                    return(
-                                        <div style={{
-                                            backgroundColor: "rgba(84, 95, 125, 0.06)",
-                                            padding: "3px 5px",
-                                            textAlign: "center",
-                                            borderRadius: "100px",
-                                            color: "#545f7d"
-                                        }}>
-                                            Inactive
-                                        </div>
-                                    );
-                                }
-                            }
-
                             return(
-                                <tr key={index}>
-                                    <td>{item.orgName}</td>
-                                    <td>{item.userName}</td>
-                                    <td>{item.email}</td>
-                                    <td>{item.phoneNumber}</td>
-                                    <td>{dateJoined}</td>
-                                    <td>{realStat()}</td>
-                                    <td style={{ cursor: "pointer" }}>
-                                        <OverlayTrigger trigger="click" placement="bottom" overlay={popover}>
-                                            <img src="/assets/ic-more-vert-18px.svg" alt="more" />
-                                        </OverlayTrigger>
-                                    </td>
-                                </tr>
+                                <Tableterm key={index} orgName={item.orgName} userName={item.userName} email={item.email} phoneNumber={item.phoneNumber} dateJoined={dateJoined} diff={diff} />
                             )
                         })}
                     </tbody>
