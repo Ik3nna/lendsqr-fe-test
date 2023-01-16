@@ -1,21 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import Popover from 'react-bootstrap/Popover';
 import styles from "../pages/Dashboard/dashboard.module.scss";
 
 function Tableterm ({ orgName, userName, email, phoneNumber, dateJoined, diff }) {
-    const [blacklist, setBlacklist] = useState(false);
-    const [activate, setActivate] = useState(false);
-
-    const blacklistFnx = ()=> {
-        setBlacklist(!blacklist);
-        setActivate(false);
-    }
-
-    const activateFnx = ()=> {
-        setActivate(!activate);
-        setBlacklist(false);
-    }
 
     const popover = (
         <Popover id="popover-basic" className={styles.pops}>
@@ -27,25 +15,25 @@ function Tableterm ({ orgName, userName, email, phoneNumber, dateJoined, diff })
                     View Details
                 </article>
     
-                <article onClick={blacklistFnx} style={{ display: blacklist ? "none" : "block" }}>
+                <article>
                     <span>
                         <img src="/assets/np_delete-friend.svg" alt="blacklist" />
                     </span>
                     Blacklist User
                 </article>
     
-                <article onClick={activateFnx}>
+                <article>
                     <span>
                         <img src="/assets/np_user.svg" alt="activate" />
                     </span>
-                    {(activate && !blacklist) ? "Deactivate User" : "Activate User"}
+                    Activate User
                 </article>
           </Popover.Body>
         </Popover>
     );
 
     const realStat = ()=> {
-        if (diff < 0 || blacklist) {
+        if (diff < 0) {
             return(
                 <div style={{
                     backgroundColor: "rgba(228, 3, 59, 0.1)",
@@ -58,7 +46,7 @@ function Tableterm ({ orgName, userName, email, phoneNumber, dateJoined, diff })
                 </div>
             );
         } 
-        else if ((diff > 0 && diff < 5) || activate) {
+        else if ((diff > 0 && diff < 5)) {
             return(
                 <div style={{
                     backgroundColor: "rgba(57, 205, 98, 0.06)",
