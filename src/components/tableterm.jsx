@@ -1,19 +1,20 @@
 import React from "react";
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import Popover from 'react-bootstrap/Popover';
+import { Link } from "react-router-dom";
 import styles from "../pages/Dashboard/dashboard.module.scss";
 
-function Tableterm ({ orgName, userName, email, phoneNumber, dateJoined, diff }) {
+function Tableterm ({ id, orgName, userName, email, phoneNumber, dateJoined, diff }) {
 
     const popover = (
         <Popover id="popover-basic" className={styles.pops}>
           <Popover.Body>
-                <article>
+                <Link to={`/dashboard/${id}`}>
                     <span>
                         <img src="/assets/np_view.svg" alt="details" />
                     </span>
                     View Details
-                </article>
+                </Link>
     
                 <article>
                     <span>

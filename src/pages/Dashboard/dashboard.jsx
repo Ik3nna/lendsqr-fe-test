@@ -246,7 +246,7 @@ function Dashboard () {
                             const diff = xStat - xDateJoined;
 
                             return(
-                                <Tableterm key={index} orgName={item.orgName} userName={item.userName} email={item.email} phoneNumber={item.phoneNumber} dateJoined={dateJoined} diff={diff} />
+                                <Tableterm key={index} id={item.createdAt} orgName={item.orgName} userName={item.userName} email={item.email} phoneNumber={item.phoneNumber} dateJoined={dateJoined} diff={diff} />
                             )
                         })}
                     </tbody>

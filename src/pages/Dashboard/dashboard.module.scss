@@ -41,11 +41,17 @@ $subColor: #545f7d;
     box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04) !important;
     border-radius: 4px !important;
 
-    article {
+    a {
+        @include displays(flex, flex-start, center);
+    }
+
+    article, a {
         margin-bottom: 10px;
         @include font(500, 14px, 16px);
+        @include displays(flex, flex-start, center);
         color: $subColor;
         cursor: pointer;
+        text-decoration: none;
 
         span {
             margin-right: 10px;
