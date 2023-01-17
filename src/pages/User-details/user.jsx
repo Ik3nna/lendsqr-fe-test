@@ -37,9 +37,30 @@ function User () {
                         </div>
                     </div>
 
-                    <article>
+                    <article className={styles.header}>
+                        <img src="/assets/avatar.svg" alt="avatar" />
+
                         <div>
                             {userarr?.profile?.firstName}&nbsp;{userarr?.profile?.lastName}
+
+                            <p>{userarr?.accountNumber}</p>
+                        </div>
+
+                        <div className={styles.vl}></div><img src="/assets/tier.svg" alt="tier" /><div className={styles.vl}></div>
+                        
+                        <section>
+                            <div>&#8358;{userarr?.education?.monthlyIncome[1]}</div>
+                            
+                            <div>{userarr?.profile?.bvn}/Providus Bank</div>
+                        </section>
+
+                        <div className={styles.tabs}>
+                            <div>General Details</div>
+                            <div>Documents</div>
+                            <div>Bank Details</div>
+                            <div>Loans</div>
+                            <div>Savings</div>
+                            <div>App and System</div>
                         </div>
                     </article>
                 </article>

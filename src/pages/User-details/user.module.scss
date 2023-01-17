@@ -77,6 +77,83 @@ $subColor: #545f7d;
                     }
                 }
             }
+
+            .header {
+                @include displays(flex, none, center);
+                margin-top: 30px;
+                background: #FFFFFF;
+                border: 1px solid rgba(33, 63, 125, 0.06);
+                box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04);
+                border-radius: 4px;
+                padding: 30px;
+                position: relative;
+                height: 210px;
+
+                > div:nth-of-type(1) {
+                    @include font(500, 22px, 26px);
+                    color: $mainColor;
+
+                    p {
+                        @include font(400, 14px, 16px);
+                        color: $subColor;
+                        margin-top: 5px;
+                    }
+                }
+
+                img {
+                    cursor: pointer;
+                }
+
+                .vl {
+                    opacity: 0.2;
+                    border: 1px solid #545F7D;
+                    height: 80px;
+                    margin-left: 20px;
+                    margin-right: 20px;
+                }
+
+                img:nth-of-type(1) {
+                    margin-right: 20px;
+                }
+
+                img:nth-of-type(2) {
+                    margin: 0 30px;
+                }
+
+                > section {
+                    div:nth-of-type(1) {
+                        @include font(500, 22px, 26px);
+                        color: $mainColor;
+                    }
+                    div:nth-of-type(2) {
+                        @include font(400, 12px, 14px);
+                        color: $subColor;
+                        margin-top: 5px;
+                    }
+                }
+
+                .tabs {
+                    position: absolute;
+                    bottom: 0;
+                    @include displays(flex, space-evenly, center);
+                    cursor: pointer;
+                    @include font(400, 16px, 19px);
+
+                    div:nth-of-type(1) {
+                        color: #39CDCC;
+                        border-bottom: 2px solid #39CDCC;
+                        padding-bottom: 5px;
+                    }
+
+                    > div {
+                        margin-right: 75px;
+                        color: rgba(0, 0, 0, 0.8);
+                    }
+                }
+
+            }
+
+            
         }
     }
 }

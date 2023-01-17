@@ -2,7 +2,7 @@ import React from "react";
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import Popover from 'react-bootstrap/Popover';
 import { Link } from "react-router-dom";
-import styles from "../pages/Dashboard/dashboard.module.scss";
+import styles from "./dashboard.module.scss";
 
 function Tableterm ({ id, orgName, userName, email, phoneNumber, dateJoined, diff }) {
 

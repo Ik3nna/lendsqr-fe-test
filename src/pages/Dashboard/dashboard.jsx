@@ -7,7 +7,7 @@ import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import Popover from 'react-bootstrap/Popover';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-import Tableterm from "../../components/tableterm";
+import Tableterm from "./tableterm";
 import { useGlobalContext } from "../../components/context";
 
 let PageSize = 10;
