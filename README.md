@@ -25,7 +25,7 @@ Users should be able to:
 ### Links
 
 - Solution URL: https://github.com/Ik3nna/lendsqr-fe-test
-- Live Site URL: [Add live site URL here](https://ikenna-ndukwu-lendsqr-fe-test.netlify.app)
+- Live Site URL: https://ikenna-ndukwu-lendsqr-fe-test.netlify.app
 
 ## My process
 
