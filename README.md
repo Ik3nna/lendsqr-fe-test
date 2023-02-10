@@ -33,6 +33,7 @@ Users should be able to:
 
 - [React](https://reactjs.org/) - JS library
 - SCSS
+- React-Bootstrap
 
 
 ## Author
