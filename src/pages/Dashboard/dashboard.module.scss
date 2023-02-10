@@ -23,7 +23,7 @@ $subColor: #545f7d;
         @include font(700, 24px, 28px);
         font-family: $alternativeFont;
         text-align: center;
-        margin-top: 40vh;
+        margin-top: 30vh;
         animation: bounce 3s infinite;
     }
 }
@@ -258,12 +258,23 @@ $subColor: #545f7d;
 
         table {
             width: 900px;
+
+            thead {
+                tr {
+                    th {
+                        span {
+                            margin-left: 10px;
+                            cursor: pointer
+                        }
+                    }
+                }
+            }
         }
     }
 }
 @media (max-width: 1200px) {
     .sf {
-        height: 150vh;
+        height: 130vh;
     }
 
     .content {
@@ -319,18 +330,19 @@ $subColor: #545f7d;
 }
 @media (max-width: 576px) {
     .sf {
-        height: 200vh;
+        height: fit-content;
     }
 
     .content {
         .container {
             article:nth-of-type(1) {
                 grid-template-columns: repeat(1, 1fr);
-
             }
         }
 
         .pageContainer {
+            margin-bottom: 30px;
+            
             .page {
                 width: 290px;
                 overflow-x: scroll;

@@ -45,6 +45,7 @@ $navColor: #213f7d;
         max-width: 100%;
         width: 75%;
         margin: 30px auto;
+        height: fit-content;
 
         .dashboard {
             margin: 40px auto;
@@ -116,8 +117,10 @@ $navColor: #213f7d;
 
 @media (max-width: 1200px) {
     .sidebar {
+       
         .container {
             width: 80%;
+            // height: 130vh;
 
             .customers {
                 ul {
@@ -138,6 +141,7 @@ $navColor: #213f7d;
 
         .container {
             width: 85%;
+            // height: 140vh;
 
             .customers {
                 ul {
@@ -150,3 +154,11 @@ $navColor: #213f7d;
         }
     }
 }
+
+// @media (max-width: 576px) {
+//     .sidebar {
+//         .container {
+//             height: 100vh;
+//         }
+//     }
+// }
